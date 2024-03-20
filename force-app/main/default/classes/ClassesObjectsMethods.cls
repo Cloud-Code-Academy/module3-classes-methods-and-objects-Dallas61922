@@ -40,17 +40,21 @@ public with sharing class ClassesObjectsMethods {
      */
     public static List<String> practiceStringMethods() {
         // Initialize a String with 'Hello, Salesforce!'
+        String myNewString = 'Hello, Salesforce!';
         
-        // Get the length of the String        
+        // Get the length of the String     
+        Integer len = myNewString.length();
         // Get a substring of the String of the first 5 characters
+        String substringFive = myNewString.left(5);
         // Convert the String to lower case
-        
+        String lowerCase = myNewString.toLowerCase();
         // Return the list with the string data
-        // In the first position add the string length
-        // In the second position add the substring
-        // In the third position add the string in lower case
+        List<String> myStringDetails = new List<String>();
+        myStringDetails.add(String.valueOf(len));
+        myStringDetails.add(substringFive);
+        myStringDetails.add(lowerCase);
 
-        return null; // Replace null with the variable you used to store the result
+        return myStringDetails; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -62,14 +66,18 @@ public with sharing class ClassesObjectsMethods {
      */
     public static List<Boolean> checkStringContent(String input) {
         // Initialize a list to store the results
-        
+        List<Boolean> wordsToCheck = new List<Boolean>();
+        String stringToCheck = input;
         // Check if the string starts with 'Sales'
-        
+        Boolean firstCharactersMatch = (stringToCheck.left(5) == 'Sales');
         // Check if the string ends with 'Force'
-        
+        Boolean lastCharactersMatch = (stringToCheck.right(5) == 'Force');
         // Check if the string contains 'Awesome'
-        
-        return null; // Replace null with the variable you used to store the result
+        Boolean containsAwesome = (stringToCheck.contains('Awesome'));
+        wordsToCheck.add(firstCharactersMatch);
+        wordsToCheck.add(lastCharactersMatch);
+        wordsToCheck.add(containsAwesome);
+        return wordsToCheck; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -380,4 +388,7 @@ public with sharing class ClassesObjectsMethods {
     public static Person getOlderPerson(Person person1, Person person2) {
         return null; // Replace null with the variable you used to store the result
     }
+
+	private void length(String myNewString){
+	} 
 }
