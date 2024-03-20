@@ -26,7 +26,7 @@
  * Math class: https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_methods_system_math.htm
  * Classes: https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_understanding.htm
  *
- * @author Your Name
+ * @author Dallas Bailey
  */
 
 public with sharing class ClassesObjectsMethods {
@@ -88,16 +88,11 @@ public with sharing class ClassesObjectsMethods {
      * @return A string consisting of only unique words from the input sentence.
      */
     public static String removeDuplicateWords(String sentence) {
-        // Split the sentence into words
-
-        // Create a set to store the unique words
-
-        // Add each word to the set
-
-        // Join the unique words back into a sentence
-
-        // Return the sentence with unique words
-        return null; // Replace null with the variable you used to store the result
+        List<String> wordsSplit = sentence.split(' ');
+        Set<String> uniqueWords = new Set<String>(wordsSplit);
+        List<String> uniqueWordsList = new List<String>(uniqueWords);
+        String newSentance = String.join(uniqueWordsList, ' ');
+        return newSentance; 
     }
 
     /**
