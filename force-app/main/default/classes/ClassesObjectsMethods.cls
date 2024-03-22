@@ -159,10 +159,7 @@ public with sharing class ClassesObjectsMethods {
      * @return A integer between 50 and 100.
      */
     public static Integer generateRandomNumber() {
-        Double randomNumber = Math.random() * 100;
-        if (randomNumber < 50){
-            randomNumber += 50;
-        }
+        Double randomNumber = (50 + (Math.random() * 50));
         return (Integer)randomNumber;
     }
 
@@ -173,12 +170,9 @@ public with sharing class ClassesObjectsMethods {
      * @return The current date in the current user locale format.
      */
     public static String getCurrentDate() {
-        // Get the todays date
         date currentDate = Date.today();
-        // Format the current date
         String formattedDate = currentDate.format();
-        // Return the result
-        return formattedDate; // Replace null with the variable you used to store the result
+        return formattedDate;
     }
 
     /**
@@ -188,15 +182,17 @@ public with sharing class ClassesObjectsMethods {
      * @return The number of the day of the week for the given date.
      */
     public static String getDayOfWeek(DateTime dt) {
-        // Define a map of day of the week as a key and day number as the value
-        // Monday = 1, Tuesday = 2, etc.
-
-        // Get the day name using .format('EEEE');
-
-        // Get the day number from the map using the day name
-
-        // Return the result as a string
-        return null; // Replace null with the variable you used to store the result
+        Map<String, Integer> weekDayByNumber = new Map<String, Integer>{'Monday' => 1, 'Tuesday' => 2, 'Wednesday' => 3, 'Thursday' => 4, 'Friday' => 5, 'Saturday' => 6, 'Sunday' => 7};
+        Integer numberOfTheDay = 0;
+        String writtenDay = dt.format('EEEE');
+        Set<String> daysOfTheWeekSet = new Set<String>();
+        daysOfTheWeekSet = weekDayByNumber.keySet();
+        for (String individualDay : daysOfTheWeekSet){
+            if (individualDay == writtenDay){
+                numberOfTheDay = weekDayByNumber.get(individualDay);
+            }
+        }
+        return numberOfTheDay.format();
     }
 
 
